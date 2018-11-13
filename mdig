@@ -28,17 +28,17 @@ MAILMXLONG=$( dig mx $1 +short | grep -v ".root-servers.net" | sort -nr )
 MAILIP=$( dig $MAILMX +short | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | head -n 1 )
 MAILPTR=$( dig -x $MAILIP +short | grep -v "in-addr" | head -n 1 )
 #======================================== 
-NS1IMH=$( dig @ns1.inmotionhosting.com $1 +short | grep [0-9][0-9] | head -n 1 )
-NS2IMH=$( dig @ns2.inmotionhosting.com $1 +short | grep [0-9][0-9] | head -n 1 )
+#NS1IMH=$( dig @ns1.inmotionhosting.com $1 +short | grep [0-9][0-9] | head -n 1 )
+#NS2IMH=$( dig @ns2.inmotionhosting.com $1 +short | grep [0-9][0-9] | head -n 1 )
 #======================================== 
-NS1HUB=$( dig @ns1.webhostinghub.com $1 +short | grep [0-9][0-9] | head -n 1 )
-NS2HUB=$( dig @ns2.webhostinghub.com $1 +short | grep [0-9][0-9] | head -n 1 )
+#NS1HUB=$( dig @ns1.webhostinghub.com $1 +short | grep [0-9][0-9] | head -n 1 )
+#NS2HUB=$( dig @ns2.webhostinghub.com $1 +short | grep [0-9][0-9] | head -n 1 )
 #======================================== 
-NS1IMHPTR=$( dig -x $NS1IMH +short | grep -v "in-addr" | head -n 1 )
-NS2IMHPTR=$( dig -x $NS2IMH +short | grep -v "in-addr" | head -n 1 )
+#NS1IMHPTR=$( dig -x $NS1IMH +short | grep -v "in-addr" | head -n 1 )
+#NS2IMHPTR=$( dig -x $NS2IMH +short | grep -v "in-addr" | head -n 1 )
 #======================================== 
-NS1HUBPTR=$( dig -x $NS1HUB +short | grep -v "in-addr" | head -n 1 )
-NS2HUBPTR=$( dig -x $NS2HUB +short | grep -v "in-addr" | head -n 1 )
+#NS1HUBPTR=$( dig -x $NS1HUB +short | grep -v "in-addr" | head -n 1 )
+#NS2HUBPTR=$( dig -x $NS2HUB +short | grep -v "in-addr" | head -n 1 )
 #=================================================================
 clear
 echo -e "${BLUE}|${BOLD} __  __    __    ____  ____  _  _  ____  ____  ___  _ ${BLUE}|${NC}"
