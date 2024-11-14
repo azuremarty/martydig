@@ -129,5 +129,11 @@
         }
     }
     ?>
+
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById("dnsForm").focus();
+    };
+</script>
 </body>
 </html>
