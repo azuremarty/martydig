@@ -71,7 +71,7 @@
         <div id="submit-container">
             <input type="submit" value="Submit">
             <!-- Link to the script in a new window -  -->
-            <a href="https://scripts.martypete.com/martydig/" target="_blank" class="icon-link">
+            <a href="https://martypete.com/repo/martydig/" target="_blank" class="icon-link">
                 <!-- new window icon -->
                 <img src="https://martypete.com/wp-content/uploads/2024/07/new-window.256x256.png" alt="Open in new tab" style="width: 24px; height: 24px;">
             </a>
@@ -92,7 +92,7 @@
             $domain = escapeshellarg($domain);
 
             // Path to your bash script
-            $script = '/home/martypete/mdig-web.sh';
+            $script = 'scripts/mdig-web.sh';
 
             // Execute the bash script and capture the output
             $output = shell_exec("$script $domain 2>&1");
