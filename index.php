@@ -129,11 +129,11 @@
         }
     }
     ?>
-
-<script type="text/javascript">
-    window.onload = function() {
-        document.getElementById("dnsForm").focus();
-    };
-</script>
+        <!-- JavaScript to focus on the input field -->
+        <script type="text/javascript">
+        window.onload = function() {
+           document.getElementById("domain").focus();
+       };
+    </script>
 </body>
 </html>
