@@ -70,7 +70,9 @@
         <input type="text" id="domain" name="d" value="<?php echo isset($_GET['d']) ? htmlspecialchars($_GET['d']) : ''; ?>" required>
         <div id="submit-container">
             <input type="submit" value="Submit">
+            <!-- Link to the script in a new window -  -->
             <a href="https://scripts.martypete.com/martydig/" target="_blank" class="icon-link">
+                <!-- new window icon -->
                 <img src="https://martypete.com/wp-content/uploads/2024/07/new-window.256x256.png" alt="Open in new tab" style="width: 24px; height: 24px;">
             </a>
         </div>
