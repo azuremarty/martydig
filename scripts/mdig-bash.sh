@@ -1,4 +1,3 @@
-clear
 COLOR='\033[1;33m'
 BOLD='\033[1;37m'
 NC='\033[0m' # No Color
