@@ -44,6 +44,18 @@ MAILCHIMPDKIMK3=$( dig k3._domainkey.$1 txt +nostats +noquestion +nocomments | g
 KLAVIYODKIMKL=$( dig kl._domainkey.$1 txt +nostats +noquestion +nocomments | grep -E 'IN.*(CNAME|TXT)' | grep -Ev 'SOA|RedHat|AAAA|.root-servers.net' | sort -r)
 KLAVIYODKIMKL2=$( dig kl2._domainkey.$1 txt +nostats +noquestion +nocomments | grep -E 'IN.*(CNAME|TXT)' | grep -Ev 'SOA|RedHat|AAAA|.root-servers.net' | sort -r)
 #========================================
+clear
+echo -e "${BLUE}|${BOLD}    __  ______    ____  ________  ______  __________    _    _____ ${BLUE}|${NC}"
+echo -e "${BLUE}|${BOLD}   /  |/  /   |  / __ \/_  __/\ \/ / __ \/  _/ ____/   | |  / /__ |${BLUE}|${NC}"
+echo -e "${BLUE}|${BOLD}  / /|_/ / /| | / /_/ / / /    \  / / / // // / _______| | / /__/ /${BLUE}|${NC}"
+echo -e "${BLUE}|${BOLD} / /  / / ___ |/ _, _/ / /     / / /_/ // // /_/ /_____/ |/ // __/ ${BLUE}|${NC}"
+echo -e "${BLUE}|${BOLD}/_/  /_/_/  |_/_/ |_| /_/     /_/_____/___/\____/      |___//____/ ${BLUE}|${NC}"
+echo -e "${BLUE} ___________________________________________________________________${NC}"   
+echo -e "${BLUE}[#] whois $1 (REGISTRAR INFO) ${NC}"
+#=================================================================
+#===============  WHOIS DOMAIN  ===================================
+#==================================================================
+
 echo -e "${BLUE}________________________________________________${NC}"   
 echo -e "${BLUE}[#] whois $1 (REGISTRAR INFO) ${NC}"
 
