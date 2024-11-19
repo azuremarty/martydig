@@ -118,13 +118,19 @@
                 $outputClean = preg_replace($ansi, $html, $outputClean);
             }
 
-            // Display the cleaned output
-            if ($outputClean) {
-                echo "<pre class='output'>$outputClean</pre>";
-            } else {
-                echo "<h2 class='error'>No results found or an error occurred.</h2>";
-            }
-        } else {
+     // Cleanup logic: terminate specific lingering processes and connections        
+     // Find PIDs of processes handling /martydig
+
+     $connections = shell_exec("netstat -antp 2>/dev/null | grep '/martydig' | awk '{print $7}' | cut -d'/' -f1 | sort | uniq");
+     $pids = explode("\n", trim($connections));
+
+     foreach ($pids as $pid) {
+         if (is_numeric($pid)) {
+             shell_exec("kill -9 $pid 2>&1"); // Kill each process
+             echo "<p>Killed process: $pid</p>";
+         }
+     }
+ } else {
             echo "<h2 class='error'>Invalid domain format.</h2>";
         }
     }
