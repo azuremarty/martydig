@@ -1,3 +1,9 @@
+#!/bin/bash
+
+trap 'echo "Cleaning up..."; pkill -P $$; exit' SIGINT SIGTERM EXIT
+
+
+
 COLOR='\033[1;33m'
 BOLD='\033[1;37m'
 NC='\033[0m' # No Color
@@ -53,7 +59,7 @@ echo -e "${BLUE}[#] whois $1 (REGISTRAR INFO) ${NC}"
 
 echo -e ""
 
-whois "$1" |
+timeout 10 whois "$1" |
 egrep -i "(Server|Nameserver:|Registrar:|Registrar URL|Organization:|Admin|Comment:|Email|nameservers:|Hold|Expiration|Expiry|Reseller|URL:|Transfer|Name:|No match|NS[1-4]|NOT FOUND|abuse-mailbox:|Name servers:|NET)" |
 grep -vE "(created|updated|The data in|information purposes only|makes this information available|that apply to|prior written consent|BRST|This server accepts|reserves the right|clientTransferProhibited|modify existing registrations|support questions|Redirected|Querying|\[whois\.|follow the instructions|Unconditional Guarantee|reserves the right|Billing|Registrar Abuse Contact Email|dest IP \(your IP\)|Intensity/frequency|Without these|NetName:|Domain Name:|Tech|NOCEmail|Administrative Contact Postal Code|Administrative Contact Phone Number|Administrative Contact Facsimile Number|Administrative Contact ID|Administrative Contact Address|Administrative Contact City|Administrative Contact Country|Administrative Contact State/Province|Administrative Contact Country Code|Admin Phone Ext|Admin Fax|Domain ID:|Admin Fax Ext|Admin Phone|Admin Country|Invalid option:|Admin Postal Code|Admin State/Province|Admin City|Admin Street|Admin ID|Registry Admin ID|has collected this|Last Transferred Date:|Administrative Application Purpose:|Administrative Nexus Category:|Parent|NetHandle:|Ref:|StateProv:|WHOIS Server:|Please register your domains|network:In-Addr-Server;|network:Network-Name:|Comments to|network:Tech-Contact;|OrgNOCName:|global Web hosting|DreamHost is|websites and apps hosted|Dedicated Server Hosting|high-value domains|DreamCompute|contains ONLY .COM|for more information|Connection refused|Withheld for Privacy|Redacted for Privacy|URL of the ICANN WHOIS)" |
 awk '!x[$0]++' |
